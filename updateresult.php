@@ -40,7 +40,7 @@ $db = new DB_CONNECT();
 		detail = "'.$detail.'",
 		date_record = NOW()
     WHERE id_resultat = "'.$id_resultat.'"';
-  echo '+++'.$query.'+++\n';
+  //echo '+++'.$query.'+++\n';
   $result = mysqli_query($db->con,$query) or die('Échec de la requête : ' . mysqli_error($db->con));
   if ($result == 1)
   {

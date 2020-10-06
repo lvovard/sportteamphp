@@ -29,8 +29,7 @@ require_once __DIR__ . '/db_connect.php';
 // connecting to db
 
 $db = new DB_CONNECT();
-
- 
+$db->con->set_charset("utf8");
 
 
 

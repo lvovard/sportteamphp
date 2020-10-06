@@ -14,6 +14,8 @@ require_once __DIR__ . '/db_connect.php';
  
 // connecting to db
 $db = new DB_CONNECT();
+$db->con->set_charset("utf8");
+
  
 
 $id_club = $_GET['id_club'];
@@ -21,8 +23,10 @@ $id_equipe = $_GET['id_equipe'];
 $date_record = $_GET['date_record'];
 
 $query = "SELECT DISTINCT * FROM convocation WHERE date_record > \"".$date_record."\" AND id_club=\"".$id_club."\" AND id_equipe LIKE \"%".$id_equipe."%\" ORDER BY date_record DESC";
-$result = mysqli_query($db->con,"SELECT * FROM convocation WHERE date_record > \"".$date_record."\" AND id_club=\"".$id_club."\" AND id_equipe LIKE \"%".$id_equipe."%\" ORDER BY date_record DESC") or die('Échec de la requête : ' . mysqli_error($db->con));
 
+//$result = mysqli_query($db->con,"SELECT * FROM convocation WHERE date_record > \"".$date_record."\" AND id_club=\"".$id_club."\" AND id_equipe LIKE \"%".$id_equipe."%\" ORDER BY date_record DESC") or die('Échec de la requête : ' . mysqli_error($db->con));
+
+$result = mysqli_query($db->con,"SELECT * FROM convocation WHERE date_record > \"".$date_record."\" AND id_club=\"".$id_club."\" ORDER BY date_record DESC") or die('Échec de la requête : ' . mysqli_error($db->con));
     
  
 
@@ -35,6 +39,8 @@ if (mysqli_num_rows($result) > 0) {
  
     while ($row = mysqli_fetch_array($result)) {
         // temp user array
+        $convocation = array();       
+ 
         $convocation["adversaire"] = $row["adversaire"];
         $convocation["date_match"] = $row["date_match"];
         $convocation["heure_rdv"] = $row["heure_rdv"];
@@ -59,6 +65,8 @@ if (mysqli_num_rows($result) > 0) {
  
     // echoing JSON response
     echo json_encode($response);
+    echo json_last_error_msg();
+
 } else {
     // no products found
     $response["success"] = 0;

@@ -23,11 +23,11 @@ $db = new DB_CONNECT();
   $result = mysqli_query($db->con,$query) or die('Échec de la requête : ' . mysql_error());
   if ($result == 1)
   {
-	  echo 'insert passed';
+	  echo 'delete passed';
   }
   else
   {
-	  echo 'insert failed';
+	  echo 'delete failed';
   }
 ?>
 

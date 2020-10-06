@@ -34,7 +34,7 @@ $db = new DB_CONNECT();
 		date_info = "'.$date_info.'",
 		heure_info = "'.$heure_info.'"
     WHERE id_info = "'.$id_info.'"';
-  echo '+++'.$query.'+++\n';
+  //echo '+++'.$query.'+++\n';
   $result = mysqli_query($db->con,$query) or die('Échec de la requête : ' . mysqli_error($db->con));
   if ($result == 1)
   {

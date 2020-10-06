@@ -14,7 +14,7 @@ require_once __DIR__ . '/db_connect.php';
  
 // connecting to db
 $db = new DB_CONNECT();
- 
+$db->con->set_charset("utf8");
 
 $id_club = $_GET['id_club'];
 //result = mysqli_query($db->con,"SELECT DISTINCT categorie,id_club,password FROM categorie WHERE sport = \"".$sport."\" AND dep = \"".$dep."\" AND club = \"".$club."\"" ) or die(mysql_error()); 

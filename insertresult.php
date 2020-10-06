@@ -56,7 +56,7 @@ $db = new DB_CONNECT();
 	"null",
 	"'.$detail.'"
 	)';
-  echo '+++'.$query.'+++\n';
+  //echo '+++'.$query.'+++\n';
   $result = mysqli_query($db->con,$query) or die('Échec de la requête : ' . mysqli_error($db->con));
   if ($result == 1)
   {

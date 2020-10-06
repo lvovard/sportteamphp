@@ -24,10 +24,10 @@ $db = new DB_CONNECT();
   $result = mysqli_query($db->con,$query) or die('Échec de la requête : ' . mysql_error());
   if ($result == 1)
   {
-	  echo 'insert passed';
+	  echo 'update passed';
   }
   else
   {
-	  echo 'insert failed';
+	  echo 'update failed';
   }
 ?>
