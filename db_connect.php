@@ -56,7 +56,7 @@ class DB_CONNECT {
 
         // Connecting to mysql database
 
-        $this->con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD,DB_DATABASE) or die ("could not connect to mysql"); ;
+        $this->con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD,DB_DATABASE) or die ("could not connect to mysql"); ;        $this->con->set_charset("utf8");
 
  
 
