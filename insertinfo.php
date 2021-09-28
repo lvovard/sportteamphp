@@ -51,7 +51,7 @@ $db = new DB_CONNECT();
   $result = mysqli_query($db->con,$query) or die('Échec de la requête : ' . mysqli_error($db->con));
   if ($result == 1)
   {
-	  echo 'insert passed';
+	  echo 'insert passed:'.mysqli_insert_id($db->con);
   }
   else
   {

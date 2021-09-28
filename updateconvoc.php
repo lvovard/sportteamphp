@@ -51,7 +51,7 @@ $db = new DB_CONNECT();
   $result = mysqli_query($db->con,$query) or die('Échec de la requête : ' . mysqli_error($db->con));
   if ($result == 1)
   {
-	  echo 'update passed';
+	  echo 'update passed:'.$id_convoc;
   }
   else
   {
