@@ -1,7 +1,7 @@
 <?php
  
 /*
- * All database connection variables
+ * All database connection variables  
  */
  
 define('DB_USER', "3183541_sportteam"); // db user
