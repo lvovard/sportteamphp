@@ -1,8 +1,11 @@
 <?php 
 // Server key from Firebase Console 
-
+$topic = $_GET['topic'];
+$title = $_GET['title'];
+$text = $_GET['text'];
+$line1 = $_GET['line1'];
 define( 'API_ACCESS_KEY', 'AAAAat53HvU:APA91bHGmrV0cObGNopi81-rmLug-VTTC6ySZ0YfgDFHmBXxYiP8Mwv-YEmmJN0dRq5mIBMorTOlXNVJkNX0eXJ0RSLDzvXogyVLRnmkZZyXF-sCjPoCEhiVHKURIyhFMM9h2UPfa1XB' );
-$data = array("to" => "/topics/u10u11", "notification" => array( "title" => "Shareurcodes.com", "body" => "A Code Sharing Blog!","icon" => "icon.png", "click_action" => "http://shareurcodes.com"));
+$data = array("to" => $topic, "data" => array( "title" => $title, "text" => $text,"icon" => "", "line1" => $line1));
 $data_string = json_encode($data);
 echo "The Json Data : ".$data_string;
 $headers = array ( 'Authorization: key=' . API_ACCESS_KEY, 'Content-Type: application/json' );
@@ -14,5 +17,4 @@ curl_setopt( $ch,CURLOPT_POSTFIELDS, $data_string);
 $result = curl_exec($ch);
 curl_close ($ch);
 echo "<p>&nbsp;</p>";
-echo "The Result : ".$result;
-?>
+echo "The Result : notif sent ".$result;
