@@ -1,8 +1,6 @@
 <?php
  
-/*
- * Following code will list all the products
- */
+
  
 // array for JSON response
 $response = array();
